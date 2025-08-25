@@ -38,7 +38,6 @@ function install_growpart {
 function extend_disk {
     PARTITION=$(pvs | grep  $(lvdisplay $(df -h / | grep / | awk '{print $1}') | grep "VG Name" | awk '{print $3}') | awk '{print $1}')
     EXTEND_SECTOR=$(echo "$PARTITION" | awk '{print $1}' | sed -E 's#([0-9])$# \1#')
-
     LV_PATH=$(df -h / | grep / | awk '{print $1}') 
 
 if [ ! -b "$PARTITION" ]; then
