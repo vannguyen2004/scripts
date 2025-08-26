@@ -55,7 +55,7 @@ fi
 if ! sudo growpart --dry-run $EXTEND_SECTOR &> /dev/null ; then
     echo "Không thể mở rộng phân vùng $EXTEND_SECTOR được nữa"
 else
-    growpart  $EXTEND_SECTOR > /dev/null
+   sudo growpart  $EXTEND_SECTOR > /dev/null
     if [ $? != 0 ]; then
         echo "Đã xãy ra lỗi vui lòng kiểm tra lại"
     else
